@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -10,7 +10,7 @@
   <link
     rel="preload"
     as="image"
-    href="assets/bg.webp"
+    href="assets/images/presentation-background.webp"
     type="image/webp"
   />
 
@@ -48,7 +48,7 @@
   <!-- Custom styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="font-sans text-ink bg-silver antialiased">
+<body class="home-redesign font-sans text-ink bg-white antialiased">
 
   <!-- ===== HEADER ===== -->
   <header id="site-header" class="fixed top-0 left-0 right-0 z-[1000] px-4 pt-5 pb-3">
@@ -58,6 +58,8 @@
       <a href="#" class="flex-shrink-0">
         <img src="assets/logo.webp" alt="IFPE Conseil" class="protected-image h-12 2xl:h-14 w-auto" draggable="false" width="400" height="133" srcset="assets/logo-200.webp 200w, assets/logo.webp 400w" sizes="(min-width: 1536px) 168px, 144px" />
       </a>
+
+      <a href="index.html" class="home-nav-active" aria-current="page">Accueil</a>
 
       <!-- Nav desktop -->
       <nav class="hidden lg:flex flex-1 min-w-0 items-center justify-center gap-1">
@@ -94,8 +96,18 @@
         </div>
 
         <!-- Contact -->
+        <a href="presentation.html" class="px-2.5 py-2 text-sm font-semibold text-navy/90 hover:text-blue rounded-xl transition-colors">Présentation</a>
         <a href="contact.html" class="px-2.5 py-2 text-sm font-semibold text-navy/90 hover:text-blue rounded-xl transition-colors">Contact</a>
       </nav>
+
+      <!-- Recherche toujours visible sur l'accueil -->
+      <form class="home-header-search site-search" role="search" action="recherche.html" method="get">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input type="search" name="q" aria-label="Rechercher sur IFPE Conseil" placeholder="Rechercher sur IFPE Conseil…" autocomplete="off" />
+        <button type="submit" aria-label="Lancer la recherche">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </form>
 
       <!-- Right icons -->
       <div class="flex items-center gap-2 ml-auto">
@@ -361,703 +373,87 @@
   <div id="mobile-overlay" class="fixed inset-0 z-[990] bg-navy/40 backdrop-blur-sm hidden lg:hidden"></div>
 
   <!-- ===== MAIN CONTENT ===== -->
-  <main>
+  <main class="home-main">
+    <div class="home-container">
+      <div class="home-dashboard">
+        <!-- ===== NAVIGATION LATÉRALE ===== -->
+        <aside class="home-side" aria-label="Accès directs">
+          <a href="#presentation" data-content="president"><span class="home-side-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span>Mot du président</span><svg class="home-side-arrow" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          <a href="#presentation" data-content="prestations"><span class="home-side-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18M5 7v14h14V7M8 7V4h8v3M8 11h8M8 15h5"/></svg></span><span>Prestations</span><svg class="home-side-arrow" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          <a href="#presentation" data-content="modalites"><span class="home-side-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><span>Modalités d’intervention</span><svg class="home-side-arrow" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          <a href="#presentation" data-content="references"><span class="home-side-icon"><svg viewBox="0 0 24 24"><path d="m8 12 3 3 5-6M3 7l4-2 4 2 4-2 6 3v9l-6 3-4-2-4 2-4-3V7Z"/></svg></span><span>Références</span><svg class="home-side-arrow" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+          <a href="contact.html"><span class="home-side-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span>Contact</span><svg class="home-side-arrow" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>
+        </aside>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero-section relative min-h-screen overflow-hidden px-0 py-0">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_30%,rgba(104,183,227,0.24),transparent_35%),linear-gradient(135deg,#ffffff_0%,#f6fbff_48%,#edf7ff_100%)]"></div>
-      <div class="relative z-10 flex min-h-screen w-full items-stretch">
-        <div class="hero-grid grid w-full items-center gap-12 overflow-hidden px-0 py-0 lg:grid-cols-[0.92fr_1.08fr]">
-          <div class="hero-left max-w-2xl px-4 pb-10 pt-32 sm:px-8 lg:pl-16 lg:pt-36 xl:pl-24">
-            <span class="text-xs font-semibold text-navy tracking-widest uppercase">Ingénierie · Conseil · Formation · Performance</span>
-            <h1 class="mt-5 max-w-2xl text-4xl font-extrabold leading-[1.04] tracking-normal text-navy sm:text-5xl lg:text-5xl xl:text-6xl">
-              Votre partenaire stratégique pour la performance
-            </h1>
-            <div class="mt-5 h-1 w-20 rounded-full bg-blue"></div>
-            <p class="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg">
-              IFPE Conseil accompagne les entreprises, les institutions de formation, les administrations publiques et les organisations dans le renforcement de leurs performances, le développement de leurs ressources humaines et la réussite de leurs transformations.
-            </p>
-            <div class="mt-7 flex flex-col gap-4 sm:flex-row">
-              <a href="contact.html" class="inline-flex h-14 items-center justify-center gap-3 rounded-2xl bg-navy px-7 text-sm font-bold text-white shadow-xl shadow-navy/20 hover:-translate-y-0.5 hover:bg-blue hover:shadow-blue/25 transition-all">
-                <svg class="h-5 w-5 rounded-full border border-white/60 p-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                Nous contacter
+        <div class="home-content">
+          <!-- ===== TROIS PÔLES ===== -->
+          <section class="home-poles" aria-labelledby="poles-title">
+            <h2 id="poles-title" class="sr-only">Les trois pôles d’activité d’IFPE Conseil</h2>
+            <div class="home-poles-grid">
+              <a class="home-pole-card" href="#presentation" data-content="consulting" aria-label="Découvrir IFPE Consulting">
+                <span class="home-pole-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M4 7h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="M2 12h20M10 12v2h4v-2"/></svg></span>
+                <span class="home-pole-copy"><strong>IFPE CONSULTING</strong></span>
+                <span class="home-pole-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>
               </a>
-              <a href="domaines.html" class="inline-flex h-14 items-center justify-center gap-3 rounded-2xl border border-blue/50 bg-white px-7 text-sm font-bold text-navy shadow-sm hover:-translate-y-0.5 hover:border-navy hover:shadow-lg hover:shadow-navy/10 transition-all">
-                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6a2 2 0 012-2h2m-6 8h10M7 21h10a2 2 0 002-2V7l-4-4H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                Découvrir nos domaines
+              <a class="home-pole-card" href="#presentation" data-content="ingenierie" aria-label="Découvrir IFPE Ingénierie de la Formation">
+                <span class="home-pole-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m2 10 10-5 10 5-10 5L2 10Z"/><path d="M6 12.5V17c3.6 2.7 8.4 2.7 12 0v-4.5M22 10v6"/></svg></span>
+                <span class="home-pole-copy"><strong>IFPE INGÉNIERIE DE LA FORMATION</strong></span>
+                <span class="home-pole-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>
+              </a>
+              <a class="home-pole-card" href="#presentation" data-content="coaching" aria-label="Découvrir IFPE Coaching">
+                <span class="home-pole-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21a7 7 0 0 1 14 0M19 3l.7 1.5 1.6.2-1.2 1.1.3 1.7L19 6.7l-1.4.8.3-1.7-1.2-1.1 1.6-.2L19 3Z"/></svg></span>
+                <span class="home-pole-copy"><strong>IFPE COACHING</strong></span>
+                <span class="home-pole-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>
               </a>
             </div>
-            <div class="mt-7 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-              <div class="stat-card rounded-3xl border border-white bg-white/90 p-5 text-center shadow-[0_18px_45px_rgba(0,65,127,0.10)]">
-                <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-blue/10 text-navy">
-                  <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-4-4h-1M9 20H2v-2a4 4 0 014-4h3m8-4a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </section>
+
+          <!-- ===== CARTE DE PRÉSENTATION ===== -->
+          <section id="presentation" class="home-presentation" aria-labelledby="home-title">
+            <div class="home-presentation-inner">
+              <div class="home-presentation-copy" id="central-content" tabindex="-1">
+                <div class="home-section-label">IFPE CONSEIL</div>
+                <h1 id="home-title">Connaître<br /><span>IFPE</span></h1>
+                <h2>Une synthèse de notre cabinet</h2>
+                <div class="home-presentation-rule" aria-hidden="true"></div>
+                <p id="central-description">IFPE Conseil accompagne les entreprises, les institutions de formation, les administrations publiques et les organisations dans l’amélioration de leur performance, le développement des compétences et la réussite de leurs transformations.</p>
+                <div id="central-details" class="central-details" aria-live="polite"></div>
+                <div class="home-actions">
+                  <a class="home-btn home-btn-primary" href="#presentation" data-content="president">Découvrir IFPE Conseil <span aria-hidden="true">→</span></a>
+                  <a class="home-btn home-btn-secondary" href="contact.html"><span class="home-mail-icon" aria-hidden="true">✉</span> Nous contacter <span aria-hidden="true">→</span></a>
                 </div>
-                <p class="text-3xl font-extrabold text-navy">30+</p>
-                <p class="text-xs text-gray-500">ans d'expérience</p>
               </div>
-              <div class="stat-card rounded-3xl border border-white bg-white/90 p-5 text-center shadow-[0_18px_45px_rgba(0,65,127,0.10)]">
-                <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-blue/10 text-navy">
-                  <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m12 0H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2z"/></svg>
-                </div>
-                <p class="text-3xl font-extrabold text-blue">7</p>
-                <p class="text-xs text-gray-500">domaines clés</p>
-              </div>
-              <div class="stat-card rounded-3xl border border-white bg-white/90 p-5 text-center shadow-[0_18px_45px_rgba(0,65,127,0.10)]">
-                <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-blue/10 text-navy">
-                  <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 2.7 3.75 6.03 3.75 10S14.5 19.3 12 22m0-20C9.5 4.7 8.25 8.03 8.25 12S9.5 19.3 12 22M2 12h20"/></svg>
-                </div>
-                <p class="text-2xl font-bold text-green">360°</p>
-                <p class="text-xs text-gray-500">accompagnement</p>
+              <div class="home-stats" aria-label="Chiffres clés">
+                <article class="home-stat">
+                  <span class="home-stat-icon" aria-hidden="true"><img class="home-stat-icon-image" src="icon-stat-experience.png" alt="" /></span>
+                  <strong class="home-stat-value">30+</strong><span>ANS D’EXPÉRIENCE</span>
+                </article>
+                <article class="home-stat">
+                  <span class="home-stat-icon" aria-hidden="true"><img class="home-stat-icon-image" src="icon-stat-expertise.png" alt="" /></span>
+                  <strong class="home-stat-value">7</strong><span>DOMAINES<br class="home-stat-break" /> D’EXPERTISE</span>
+                </article>
+                <article class="home-stat home-stat-rating">
+                  <span class="home-stat-icon" aria-hidden="true"><img class="home-stat-icon-image" src="icon-stat-satisfaction.png" alt="" /></span>
+                  <strong class="home-stat-value">4,7/5</strong><span class="home-stars" aria-label="4 étoiles et demie sur 5">★★★★☆</span><span>SATISFACTION GÉNÉRALE</span>
+                </article>
+                <article class="home-stat">
+                  <span class="home-stat-icon" aria-hidden="true"><img class="home-stat-icon-image" src="icon-stat-services.png" alt="" /></span>
+                  <strong class="home-stat-value">6</strong><span>SERVICES CLÉS</span>
+                </article>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div class="hero-right pointer-events-none relative hidden min-h-[420px] lg:block lg:min-h-[620px]">
-          </div>
+          <!-- ===== CARTES D'INFORMATION ===== -->
+          <section class="home-info-grid" aria-label="Ressources et informations">
+            <article class="home-info-card" data-content="news"><span class="home-info-icon"><svg viewBox="0 0 24 24"><path d="M4 4h14v16H4zM18 8h2v12a2 2 0 0 1-2 2H6"/><path d="M7 8h8M7 12h8M7 16h5"/></svg></span><h2>NEWS / ACTUALITÉS</h2><p>Restez informé des dernières actualités, publications et événements d’IFPE Conseil.</p><span class="home-info-more">En savoir plus <b aria-hidden="true">→</b></span></article>
+            <article class="home-info-card" data-content="conseils"><span class="home-info-icon"><svg viewBox="0 0 24 24"><path d="m3 11 15-6v14L3 13v-2ZM7 14v5h4l-1-4"/><path d="M21 9v6"/></svg></span><h2>CONSEILS PRATIQUES</h2><p>Piloter la performance, optimiser les processus et conduire le changement.</p><span class="home-info-more">En savoir plus <b aria-hidden="true">→</b></span></article>
+            <article class="home-info-card" data-content="economique"><span class="home-info-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9V3Z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15V3.5Z"/></svg></span><h2>DONNÉES ÉCONOMIQUES</h2><p>Repères et analyses utiles à la décision.</p><span class="home-info-more">En savoir plus <b aria-hidden="true">→</b></span></article>
+          </section>
+
         </div>
       </div>
-    </section>
-
-    <!-- ===== QUI SOMMES-NOUS ===== -->
-    <section id="qui" class="bg-white px-4 py-16 sm:py-20 lg:py-24">
-      <div class="mx-auto max-w-[1780px]">
-        <div class="mb-4 lg:mb-5">
-          <p class="mb-3 text-sm font-medium uppercase tracking-wide text-[#173A63]">À PROPOS D’IFPE CONSEIL</p>
-          <h2 class="max-w-5xl text-3xl font-bold leading-tight text-[#173A63] sm:text-4xl lg:text-[36px]">
-            Un partenaire stratégique pour votre performance
-          </h2>
-        </div>
-
-        <div class="grid items-center gap-12 lg:grid-cols-[55fr_45fr] lg:gap-[64px]">
-          <div>
-            <img
-              src="assets/images/ifpe-about-strategic-partner.webp"
-              alt="Accompagnement stratégique et performance organisationnelle"
-              class="protected-image h-[300px] w-full rounded-[12px] object-cover sm:h-[380px] lg:h-[440px]" draggable="false" width="1200" height="684" srcset="assets/images/ifpe-about-strategic-partner-480.webp 480w, assets/images/ifpe-about-strategic-partner-800.webp 800w, assets/images/ifpe-about-strategic-partner.webp 1200w" sizes="(min-width: 1024px) 55vw, 100vw" loading="lazy" decoding="async" />
-          </div>
-
-          <div class="text-[#1F2937]">
-            <p class="mb-7 text-base leading-7 text-[#1F2937] lg:text-[16px]">
-              IFPE Conseil repose sur une combinaison d’expertise terrain, d’approche systémique, d’approche par compétences et d’innovation. Son équipe est composée d’experts pluridisciplinaires et multisectoriels cumulant plus de 30 ans d’expérience dans l’entreprise, la gestion des ressources humaines, la formation professionnelle, le développement organisationnel et l’amélioration de la performance.
-            </p>
-
-            <div class="space-y-5">
-              <div>
-                <div class="mb-2 flex items-center gap-3">
-                  <span class="h-2 w-8 shrink-0 rounded-full bg-[#68B7E3]"></span>
-                  <h3 class="text-2xl font-bold text-[#1464B8]">Expertise terrain</h3>
-                </div>
-                <p class="text-base leading-7 text-[#1F2937]">Une connaissance profonde des réalités opérationnelles des organisations.</p>
-              </div>
-
-              <div>
-                <div class="mb-2 flex items-center gap-3">
-                  <span class="h-2 w-8 shrink-0 rounded-full bg-[#68B7E3]"></span>
-                  <h3 class="text-2xl font-bold text-[#1464B8]">Approche par compétences</h3>
-                </div>
-                <p class="text-base leading-7 text-[#1F2937]">Des méthodes rigoureuses centrées sur le développement des talents et des savoir-faire.</p>
-              </div>
-
-              <div>
-                <div class="mb-2 flex items-center gap-3">
-                  <span class="h-2 w-8 shrink-0 rounded-full bg-[#68B7E3]"></span>
-                  <h3 class="text-2xl font-bold text-[#1464B8]">Innovation</h3>
-                </div>
-                <p class="text-base leading-7 text-[#1F2937]">Intégration des dernières avancées numériques et pédagogiques.</p>
-              </div>
-
-              <div>
-                <div class="mb-2 flex items-center gap-3">
-                  <span class="h-2 w-8 shrink-0 rounded-full bg-[#68B7E3]"></span>
-                  <h3 class="text-2xl font-bold text-[#1464B8]">Solutions sur mesure</h3>
-                </div>
-                <p class="text-base leading-7 text-[#1F2937]">Chaque intervention est conçue selon vos réalités et vos objectifs spécifiques.</p>
-              </div>
-            </div>
-
-            <a href="domaines.html" class="mt-8 inline-flex items-center gap-2 rounded-full bg-[#1464B8] px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#173A63]">
-              Découvrir IFPE Conseil
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== POURQUOI CHOISIR IFPE ===== -->
-    <section class="py-24 px-4" style="background-color: var(--ifpe-surface);">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-5">Pourquoi choisir IFPE Conseil&nbsp;?</h2>
-          <p class="text-base text-gray-600 max-w-2xl mx-auto">Un cabinet de référence alliant rigueur méthodologique, expertise sectorielle et engagement pour des résultats concrets.</p>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <div class="why-card bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-            </div>
-            <h3 class="text-base font-bold text-navy mb-2">Structurer et moderniser le fonctionnement</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Nous aidons à clarifier les rôles, optimiser les structures et mettre en place des modes opératoires efficaces.</p>
-          </div>
-          <!-- Card 2 -->
-          <div class="why-card bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style="background: linear-gradient(135deg, var(--ifpe-medium-blue), var(--ifpe-light-blue));">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            </div>
-            <h3 class="text-base font-bold text-navy mb-2">Développer les compétences des équipes</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Des programmes de formation adaptés pour faire monter en compétence vos collaborateurs de façon durable.</p>
-          </div>
-          <!-- Card 3 -->
-          <div class="why-card bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style="background: linear-gradient(135deg, var(--ifpe-light-blue), var(--ifpe-dark-blue));">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-            </div>
-            <h3 class="text-base font-bold text-navy mb-2">Améliorer la productivité et la qualité</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Optimisation des processus, réduction des dysfonctionnements et culture de l'excellence opérationnelle.</p>
-          </div>
-          <!-- Card 4 -->
-          <div class="why-card bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-light-blue));">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            </div>
-            <h3 class="text-base font-bold text-navy mb-2">Renforcer la compétitivité</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Des stratégies de différenciation et des plans d'action opérationnels pour consolider votre positionnement.</p>
-          </div>
-          <!-- Card 5 -->
-          <div class="why-card bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style="background: linear-gradient(135deg, var(--ifpe-medium-blue), var(--ifpe-dark-blue));">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            </div>
-            <h3 class="text-base font-bold text-navy mb-2">Réussir la transformation numérique</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">Intégration des outils numériques et de l'IA pour moderniser vos modes de fonctionnement.</p>
-          </div>
-          <!-- CTA card -->
-          <div class="why-card-cta p-8 rounded-3xl text-white flex flex-col justify-between" style="background: linear-gradient(135deg, var(--ifpe-dark-blue) 0%, var(--ifpe-medium-blue) 100%);">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-5">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-              </div>
-              <h3 class="text-base font-bold mb-2">Un projet à construire ensemble ?</h3>
-              <p class="text-sm opacity-80 leading-relaxed">Contactez nos experts pour un diagnostic gratuit de vos besoins.</p>
-            </div>
-            <a href="contact.html" class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-green text-white rounded-xl text-sm font-semibold hover:bg-white hover:text-navy transition-all">
-              Prendre contact
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== DOMAINES D'INTERVENTION ===== -->
-    <section id="domaines-legacy" class="hidden py-24 px-4 bg-white" aria-hidden="true">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <span class="inline-block px-4 py-1.5 bg-navy/10 text-navy text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">Expertise</span>
-          <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-5">Nos domaines d'intervention</h2>
-          <p class="text-base text-gray-600 max-w-3xl mx-auto">Des solutions intégrées pour accompagner la performance, la transformation et le développement durable des organisations.</p>
-        </div>
-
-        <!-- Tabs -->
-        <div class="flex flex-wrap gap-2 mb-10 justify-center">
-          <button class="domain-tab active px-5 py-2.5 rounded-xl text-sm font-semibold transition-all" data-tab="1">Développement org.</button>
-          <button class="domain-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all" data-tab="2">Ressources humaines</button>
-          <button class="domain-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all" data-tab="3">Formation</button>
-          <button class="domain-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all" data-tab="4">Études & référentiels</button>
-          <button class="domain-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all" data-tab="5">Numérique & IA</button>
-          <button class="domain-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all" data-tab="6">Planification strat.</button>
-          <button class="domain-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all" data-tab="7">Coaching</button>
-        </div>
-
-        <!-- Tab content -->
-        <div id="tab-1" class="domain-content">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">1</div>
-                <h3 class="text-xl font-bold text-navy">Développement organisationnel et amélioration de la performance</h3>
-              </div>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Diagnostic organisationnel</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Réorganisation des services</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Optimisation des processus de travail</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Systèmes de management de la performance</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Culture d'excellence</span></li>
-              </ul>
-              <div class="p-4 rounded-2xl border-l-4 border-green bg-green/5">
-                <p class="text-sm font-semibold text-navy italic">Résultat : une organisation plus efficace, plus agile et davantage orientée résultats.</p>
-              </div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden h-72">
-              <img src="assets/images/domain-card-organisation.webp" alt="Développement organisationnel" class="protected-image w-full h-full object-cover" draggable="false" width="800" height="534" srcset="assets/images/domain-card-organisation-400.webp 400w, assets/images/domain-card-organisation.webp 800w" sizes="(min-width: 1024px) 30vw, 100vw" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
-            </div>
-          </div>
-        </div>
-        <div id="tab-2" class="domain-content hidden">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">2</div>
-                <h3 class="text-xl font-bold text-navy">Gestion stratégique des ressources humaines</h3>
-              </div>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Analyse et description des emplois</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Référentiels métiers et compétences</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Fiches de poste et GPEC</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Recrutement, intégration et évaluation des performances</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Plans de carrière, succession et reconnaissance</span></li>
-              </ul>
-              <div class="p-4 rounded-2xl border-l-4 border-green bg-green/5">
-                <p class="text-sm font-semibold text-navy italic">Résultat : des équipes compétentes, motivées et alignées sur les objectifs de l'organisation.</p>
-              </div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden h-72">
-              <img src="assets/images/domain-card-rh.webp" alt="Ressources humaines" class="protected-image w-full h-full object-cover" draggable="false" width="800" height="533" srcset="assets/images/domain-card-rh-400.webp 400w, assets/images/domain-card-rh.webp 800w" sizes="(min-width: 1024px) 30vw, 100vw" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
-            </div>
-          </div>
-        </div>
-        <div id="tab-3" class="domain-content hidden">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">3</div>
-                <h3 class="text-xl font-bold text-navy">Formation professionnelle et développement des compétences</h3>
-              </div>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Plans de formation continue</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Ingénierie de formation</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Perfectionnement technique</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Leadership et capacités managériales</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Formation des formateurs et Approche Par Compétences (APC)</span></li>
-              </ul>
-              <div class="p-4 rounded-2xl border-l-4 border-green bg-green/5">
-                <p class="text-sm font-semibold text-navy italic">Résultat : une montée en compétence rapide et durable des collaborateurs.</p>
-              </div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden h-72">
-              <img src="assets/images/domain-card-formation.webp" alt="Formation professionnelle" class="protected-image w-full h-full object-cover" draggable="false" width="800" height="533" srcset="assets/images/domain-card-formation-400.webp 400w, assets/images/domain-card-formation.webp 800w" sizes="(min-width: 1024px) 30vw, 100vw" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
-            </div>
-          </div>
-        </div>
-        <div id="tab-4" class="domain-content hidden">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">4</div>
-                <h3 class="text-xl font-bold text-navy">Études, ingénierie et référentiels</h3>
-              </div>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Études sectorielles</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Analyses de besoins en compétences</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Référentiels métiers, compétences et formation</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Cartographie des emplois</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Analyse des processus de travail</span></li>
-              </ul>
-              <div class="p-4 rounded-2xl border-l-4 border-green bg-green/5">
-                <p class="text-sm font-semibold text-navy italic">Résultat : des outils fiables pour piloter efficacement les ressources humaines et les formations.</p>
-              </div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden h-72">
-              <img src="assets/images/domain-card-etudes.webp" alt="Études et référentiels" class="protected-image w-full h-full object-cover" draggable="false" width="800" height="533" srcset="assets/images/domain-card-etudes-400.webp 400w, assets/images/domain-card-etudes.webp 800w" sizes="(min-width: 1024px) 30vw, 100vw" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
-            </div>
-          </div>
-        </div>
-        <div id="tab-5" class="domain-content hidden">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">5</div>
-                <h3 class="text-xl font-bold text-navy">Transformation numérique et intelligence artificielle</h3>
-              </div>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Digitalisation des processus</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Informatisation des services</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Intégration de solutions numériques</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Utilisation de l'intelligence artificielle dans les opérations</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Automatisation des tâches administratives et compétences numériques</span></li>
-              </ul>
-              <div class="p-4 rounded-2xl border-l-4 border-green bg-green/5">
-                <p class="text-sm font-semibold text-navy italic">Résultat : davantage de productivité, de rapidité et de compétitivité.</p>
-              </div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden h-72">
-              <img src="assets/images/domain-card-numerique.webp" alt="Transformation numérique" class="protected-image w-full h-full object-cover" draggable="false" width="800" height="533" srcset="assets/images/domain-card-numerique-400.webp 400w, assets/images/domain-card-numerique.webp 800w" sizes="(min-width: 1024px) 30vw, 100vw" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
-            </div>
-          </div>
-        </div>
-        <div id="tab-6" class="domain-content hidden">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">6</div>
-                <h3 class="text-xl font-bold text-navy">Planification stratégique et accompagnement du changement</h3>
-              </div>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Élaboration de la vision stratégique</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Définition des objectifs de développement</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Plans d'action opérationnels</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Conduite des changements organisationnels</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Pilotage des projets de transformation</span></li>
-              </ul>
-              <div class="p-4 rounded-2xl border-l-4 border-green bg-green/5">
-                <p class="text-sm font-semibold text-navy italic">Résultat : une croissance maîtrisée et une meilleure prise de décision.</p>
-              </div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden h-72">
-              <img src="assets/images/domain-card-strategie.webp" alt="Planification stratégique" class="protected-image w-full h-full object-cover" draggable="false" width="800" height="533" srcset="assets/images/domain-card-strategie-400.webp 400w, assets/images/domain-card-strategie.webp 800w" sizes="(min-width: 1024px) 30vw, 100vw" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
-            </div>
-          </div>
-        </div>
-        <div id="tab-7" class="domain-content hidden">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue), var(--ifpe-medium-blue));">7</div>
-                <h3 class="text-xl font-bold text-navy">Coaching professionnel et mobilisation des équipes</h3>
-              </div>
-              <ul class="space-y-3 mb-6">
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Coaching des dirigeants et des managers</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Communication interne</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Leadership et motivation du personnel</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Gestion des conflits</span></li>
-                <li class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-green/20 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span><span class="text-sm text-gray-600">Travail d'équipe</span></li>
-              </ul>
-              <div class="p-4 rounded-2xl border-l-4 border-green bg-green/5">
-                <p class="text-sm font-semibold text-navy italic">Résultat : un climat de travail positif et des équipes engagées.</p>
-              </div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden h-72">
-              <img src="assets/images/domain-card-coaching.webp" alt="Coaching professionnel" class="protected-image w-full h-full object-cover" draggable="false" width="800" height="533" srcset="assets/images/domain-card-coaching-400.webp 400w, assets/images/domain-card-coaching.webp 800w" sizes="(min-width: 1024px) 30vw, 100vw" loading="lazy" decoding="async" />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== DOMAINES D'INTERVENTION ===== -->
-    <section id="domaines" class="ifpe-domains relative overflow-hidden bg-white px-5 py-16 sm:px-8 lg:min-h-[680px] lg:py-16">
-      <!-- Signature chromatique IFPE -->
-      <div class="absolute inset-x-0 top-0 flex h-1.5" aria-hidden="true">
-        <span class="w-[36%] bg-[#173A63]"></span>
-        <span class="w-[38%] bg-[#1464B8]"></span>
-        <span class="flex-1 bg-[#68B7E3]"></span>
-      </div>
-
-      <div class="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:gap-20 xl:gap-24">
-        <!-- Colonne éditoriale -->
-        <div class="relative flex min-h-[400px] items-center py-2 lg:min-h-[548px]">
-          <svg class="ifpe-world-map pointer-events-none absolute -left-20 top-1/2 h-auto w-[140%] -translate-y-1/2 text-[#173A63] opacity-[0.045]" viewBox="0 0 900 480" fill="currentColor" aria-hidden="true">
-            <path d="M62 111l35-29 59-8 27 12 41-14 38 18 19 38-17 32-39 11-18 39-26 58-34 8-20-32-30-7-15-37-31-26 15-35-4-28zm230-45 45-26 68 7 27 24 70-2 22 26-28 18-18 40-38 7-9 39-26-8-16-39-38-23-44 7-28-22 13-48zm188 117 45-14 31 22 36-2 30 29-17 28-42 5-18 32-31-11-22-39-30-13 18-37zm170-121 64 4 31 20 52 9 42 43-15 33-42-4-19 28-38-6-22-35-37-17-41-38 25-27zm-14 185 43-16 63 12 31 33-10 35-38 13-7 54-31 24-30-35 6-42-28-26 1-42zm-192 51 41-14 34 20-1 41-24 35-23 55-32-11-7-50-24-28 16-48zm313 91 42-10 47 25-5 24-36 8-29-15-19-32z"/>
-          </svg>
-
-          <div class="relative z-10 max-w-2xl">
-            <div class="mb-7 flex items-center gap-3">
-              <span class="h-px w-10 bg-[#68B7E3]"></span>
-              <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#1464B8]">Nos domaines d’intervention</p>
-            </div>
-            <h2 class="max-w-2xl text-3xl font-bold leading-[1.15] tracking-[-0.025em] text-[#173A63] sm:text-4xl lg:text-[2.65rem]">
-              Des expertises complémentaires au service de votre performance
-            </h2>
-            <p class="mt-6 max-w-xl text-[15px] leading-7 text-slate-600 sm:text-base">
-              IFPE Conseil accompagne les organisations dans leur développement, leur transformation et l’amélioration durable de leurs performances. Nous intervenons à travers plusieurs domaines complémentaires pour répondre aux enjeux organisationnels, humains, stratégiques, numériques et managériaux.
-            </p>
-          </div>
-        </div>
-
-        <!-- Parcours des expertises -->
-        <div class="relative self-center lg:py-2">
-          <div class="ifpe-domain-line absolute bottom-8 left-[22px] top-8" aria-hidden="true"></div>
-          <ol class="relative space-y-2.5 sm:space-y-3" aria-label="Domaines d’intervention IFPE Conseil">
-            <li class="group relative flex items-center gap-5 sm:gap-6">
-              <span class="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-md border-2 border-[#82C341] bg-[#F8FAFC] text-[#5D9027] transition-all duration-300 group-hover:bg-[#82C341] group-hover:text-white sm:h-[60px] sm:w-[60px]"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m9 5 7 7-7 7"/></svg></span>
-              <a href="domaine-detail.html?d=organisation" class="py-3 text-lg font-semibold leading-snug text-[#173A63] transition-colors group-hover:text-[#1464B8] sm:text-xl">Développement organisationnel et amélioration de la performance</a>
-            </li>
-            <li class="group relative flex items-center gap-5 sm:gap-6">
-              <span class="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-md border-2 border-[#82C341] bg-[#F8FAFC] text-[#5D9027] transition-all duration-300 group-hover:bg-[#82C341] group-hover:text-white sm:h-[60px] sm:w-[60px]"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m9 5 7 7-7 7"/></svg></span>
-              <a href="domaine-detail.html?d=rh" class="py-3 text-lg font-semibold leading-snug text-[#173A63] transition-colors group-hover:text-[#1464B8] sm:text-xl">Gestion stratégique des ressources humaines</a>
-            </li>
-            <li class="group relative flex items-center gap-5 sm:gap-6">
-              <span class="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-md border-2 border-[#82C341] bg-[#F8FAFC] text-[#5D9027] transition-all duration-300 group-hover:bg-[#82C341] group-hover:text-white sm:h-[60px] sm:w-[60px]"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m9 5 7 7-7 7"/></svg></span>
-              <a href="domaine-detail.html?d=formation" class="py-3 text-lg font-semibold leading-snug text-[#173A63] transition-colors group-hover:text-[#1464B8] sm:text-xl">Formation professionnelle et développement des compétences</a>
-            </li>
-            <li class="group relative flex items-center gap-5 sm:gap-6">
-              <span class="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-md border-2 border-[#82C341] bg-[#F8FAFC] text-[#5D9027] transition-all duration-300 group-hover:bg-[#82C341] group-hover:text-white sm:h-[60px] sm:w-[60px]"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m9 5 7 7-7 7"/></svg></span>
-              <a href="domaine-detail.html?d=referentiels" class="py-3 text-lg font-semibold leading-snug text-[#173A63] transition-colors group-hover:text-[#1464B8] sm:text-xl">Études, ingénierie et référentiels</a>
-            </li>
-            <li class="group relative flex items-center gap-5 sm:gap-6">
-              <span class="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-md border-2 border-[#82C341] bg-[#F8FAFC] text-[#5D9027] transition-all duration-300 group-hover:bg-[#82C341] group-hover:text-white sm:h-[60px] sm:w-[60px]"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m9 5 7 7-7 7"/></svg></span>
-              <a href="domaine-detail.html?d=digital" class="py-3 text-lg font-semibold leading-snug text-[#173A63] transition-colors group-hover:text-[#1464B8] sm:text-xl">Transformation numérique et intelligence artificielle</a>
-            </li>
-            <li class="group relative flex items-center gap-5 sm:gap-6">
-              <span class="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-md border-2 border-[#82C341] bg-[#F8FAFC] text-[#5D9027] transition-all duration-300 group-hover:bg-[#82C341] group-hover:text-white sm:h-[60px] sm:w-[60px]"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m9 5 7 7-7 7"/></svg></span>
-              <a href="domaine-detail.html?d=strategie" class="py-3 text-lg font-semibold leading-snug text-[#173A63] transition-colors group-hover:text-[#1464B8] sm:text-xl">Planification stratégique et accompagnement du changement</a>
-            </li>
-            <li class="group relative flex items-center gap-5 sm:gap-6">
-              <span class="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-md border-2 border-[#82C341] bg-[#F8FAFC] text-[#5D9027] transition-all duration-300 group-hover:bg-[#82C341] group-hover:text-white sm:h-[60px] sm:w-[60px]"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m9 5 7 7-7 7"/></svg></span>
-              <a href="domaine-detail.html?d=coaching" class="py-3 text-lg font-semibold leading-snug text-[#173A63] transition-colors group-hover:text-[#1464B8] sm:text-xl">Coaching professionnel et mobilisation des équipes</a>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== NOS SERVICES ===== -->
-    <section id="services" class="px-5 py-20 sm:px-8" style="background-color: var(--ifpe-surface);">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="services-section-title text-3xl lg:text-4xl font-bold text-navy mb-5">Nos services</h2>
-          <p class="text-base text-gray-600 max-w-2xl mx-auto">Une offre complète de prestations conçues pour répondre aux défis actuels des organisations.</p>
-        </div>
-        <div class="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Service 1 -->
-          <article class="group flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_28px_rgba(30,58,95,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,58,95,0.15)]">
-            <div class="h-[230px] overflow-hidden">
-              <img src="assets/images/service-diagnostic-organisationnel.webp" alt="Consultants analysant des documents lors d'une réunion" class="protected-image h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" draggable="false" width="960" height="540" srcset="assets/images/service-diagnostic-organisationnel-480.webp 480w, assets/images/service-diagnostic-organisationnel-720.webp 720w, assets/images/service-diagnostic-organisationnel.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" />
-            </div>
-            <div class="flex flex-1 flex-col p-7">
-              <div class="mb-4 flex items-center gap-4">
-                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F3F8FC] text-[#2F6FA3]"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m-6 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></span>
-                <h3 class="text-lg font-bold leading-snug text-[#1E3A5F]">Diagnostic organisationnel</h3>
-              </div>
-              <p class="mb-6 text-sm leading-7 text-slate-600">Analyse approfondie de vos structures, processus et modes de fonctionnement pour identifier les leviers d’amélioration.</p>
-              <a href="services.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2F6FA3]">Découvrir <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg></a>
-            </div>
-          </article>
-
-          <!-- Service 2 -->
-          <article class="group flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_28px_rgba(30,58,95,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,58,95,0.15)]">
-            <div class="h-[230px] overflow-hidden"><img src="assets/images/service-optimisation-processus.webp" alt="Professionnels étudiant des indicateurs de performance" class="protected-image h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" draggable="false" width="960" height="640" srcset="assets/images/service-optimisation-processus-480.webp 480w, assets/images/service-optimisation-processus-720.webp 720w, assets/images/service-optimisation-processus.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" /></div>
-            <div class="flex flex-1 flex-col p-7">
-              <div class="mb-4 flex items-center gap-4"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F3F8FC] text-[#2F6FA3]"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8-8 8-4-4-6 6"/></svg></span><h3 class="text-lg font-bold leading-snug text-[#1E3A5F]">Optimisation des processus</h3></div>
-              <p class="mb-6 text-sm leading-7 text-slate-600">Rationalisation et amélioration continue de vos opérations pour une meilleure efficacité et rentabilité.</p>
-              <a href="services.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2F6FA3]">Découvrir <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg></a>
-            </div>
-          </article>
-
-          <!-- Service 3 -->
-          <article class="group flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_28px_rgba(30,58,95,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,58,95,0.15)]">
-            <div class="h-[230px] overflow-hidden"><img src="assets/images/service-ingenierie-formation.webp" alt="Session de formation professionnelle en groupe" class="protected-image h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" draggable="false" width="960" height="720" srcset="assets/images/service-ingenierie-formation-480.webp 480w, assets/images/service-ingenierie-formation-720.webp 720w, assets/images/service-ingenierie-formation.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" /></div>
-            <div class="flex flex-1 flex-col p-7">
-              <div class="mb-4 flex items-center gap-4"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F3F8FC] text-[#2F6FA3]"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5S19.832 5.477 21 6.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"/></svg></span><h3 class="text-lg font-bold leading-snug text-[#1E3A5F]">Ingénierie de formation</h3></div>
-              <p class="mb-6 text-sm leading-7 text-slate-600">Conception et déploiement de dispositifs pédagogiques sur mesure, alignés sur vos objectifs de performance.</p>
-              <a href="services.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2F6FA3]">Découvrir <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg></a>
-            </div>
-          </article>
-
-          <!-- Service 4 -->
-          <article class="group flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_28px_rgba(30,58,95,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,58,95,0.15)]">
-            <div class="h-[230px] overflow-hidden"><img src="assets/images/service-referentiels-metiers-competences.webp" alt="Responsable analysant des profils et documents professionnels" class="protected-image h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" draggable="false" width="960" height="619" srcset="assets/images/service-referentiels-metiers-competences-480.webp 480w, assets/images/service-referentiels-metiers-competences-720.webp 720w, assets/images/service-referentiels-metiers-competences.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" /></div>
-            <div class="flex flex-1 flex-col p-7">
-              <div class="mb-4 flex items-center gap-4"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F3F8FC] text-[#2F6FA3]"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414A1 1 0 0 1 19 9.414V19a2 2 0 0 1-2 2Z"/></svg></span><h3 class="text-lg font-bold leading-snug text-[#1E3A5F]">Référentiels métiers et compétences</h3></div>
-              <p class="mb-6 text-sm leading-7 text-slate-600">Élaboration d’outils de gestion RH fiables : référentiels de compétences, fiches de poste, GPEC et cartographies.</p>
-              <a href="services.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2F6FA3]">Découvrir <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg></a>
-            </div>
-          </article>
-
-          <!-- Service 5 -->
-          <article class="group flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_28px_rgba(30,58,95,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,58,95,0.15)]">
-            <div class="h-[230px] overflow-hidden"><img src="assets/images/service-digitalisation-processus.webp" alt="Équipe travaillant avec des outils numériques" class="protected-image h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" draggable="false" width="960" height="540" srcset="assets/images/service-digitalisation-processus-480.webp 480w, assets/images/service-digitalisation-processus-720.webp 720w, assets/images/service-digitalisation-processus.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" /></div>
-            <div class="flex flex-1 flex-col p-7">
-              <div class="mb-4 flex items-center gap-4"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F3F8FC] text-[#2F6FA3]"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17 9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2Z"/></svg></span><h3 class="text-lg font-bold leading-snug text-[#1E3A5F]">Digitalisation des processus</h3></div>
-              <p class="mb-6 text-sm leading-7 text-slate-600">Accompagnement de votre transformation numérique, intégration de l’IA et automatisation des tâches à faible valeur ajoutée.</p>
-              <a href="services.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2F6FA3]">Découvrir <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg></a>
-            </div>
-          </article>
-
-          <!-- Service 6 -->
-          <article class="group flex h-full flex-col overflow-hidden rounded-[24px] bg-white shadow-[0_8px_28px_rgba(30,58,95,0.08)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_42px_rgba(30,58,95,0.15)]">
-            <div class="h-[230px] overflow-hidden"><img src="assets/images/service-coaching-dirigeants-managers.webp" alt="Coach professionnel échangeant avec un dirigeant" class="protected-image h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" draggable="false" width="960" height="768" srcset="assets/images/service-coaching-dirigeants-managers-480.webp 480w, assets/images/service-coaching-dirigeants-managers-720.webp 720w, assets/images/service-coaching-dirigeants-managers.webp 960w" sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw" loading="lazy" decoding="async" /></div>
-            <div class="flex flex-1 flex-col p-7">
-              <div class="mb-4 flex items-center gap-4"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F3F8FC] text-[#2F6FA3]"><svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM12 14a7 7 0 0 0-7 7h14a7 7 0 0 0-7-7Z"/></svg></span><h3 class="text-lg font-bold leading-snug text-[#1E3A5F]">Coaching des dirigeants et managers</h3></div>
-              <p class="mb-6 text-sm leading-7 text-slate-600">Accompagnement personnalisé du leadership, renforcement des compétences managériales et mobilisation des équipes.</p>
-              <a href="services.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#2F6FA3]">Découvrir <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg></a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== VALEUR AJOUTÉE ===== -->
-    <section id="valeur" class="bg-white px-4 py-16 sm:px-8">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-10">
-          <h2 class="mb-4 text-2xl font-bold text-navy sm:text-3xl">Notre valeur ajoutée</h2>
-          <p class="mx-auto max-w-2xl text-sm leading-6 text-gray-600">Trois piliers fondamentaux qui font d'IFPE Conseil un partenaire de confiance pour votre performance durable.</p>
-        </div>
-
-        <div class="grid items-center gap-9 lg:grid-cols-2 lg:gap-12">
-          <div class="py-2 lg:order-1">
-            <h3 class="mb-5 text-2xl font-bold leading-tight text-[#173A63] sm:text-3xl">Notre différence</h3>
-            <p class="mb-6 text-sm leading-7 text-slate-700">
-              IFPE Conseil met son expertise, sa vision intégrée et sa capacité d’adaptation au service de la performance durable des organisations.
-            </p>
-
-            <ul class="space-y-4">
-              <li class="flex items-start gap-5">
-                <span class="mt-3 h-1 w-5 shrink-0 rounded-full bg-[#68B7E3]"></span>
-                <div>
-                  <h4 class="text-lg font-bold text-[#173A63]">Une expertise éprouvée</h4>
-                  <p class="mt-1 text-[13px] leading-6 text-slate-600">Plus de 30 ans d'expérience dans l'entreprise, l'industrie, les services, l'éducation et la formation professionnelle.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-5">
-                <span class="mt-3 h-1 w-5 shrink-0 rounded-full bg-[#68B7E3]"></span>
-                <div>
-                  <h4 class="text-lg font-bold text-[#173A63]">Une approche intégrée</h4>
-                  <p class="mt-1 text-[13px] leading-6 text-slate-600">Intervention simultanée sur les dimensions humaine, technique, organisationnelle, stratégique et numérique.</p>
-                </div>
-              </li>
-              <li class="flex items-start gap-5">
-                <span class="mt-3 h-1 w-5 shrink-0 rounded-full bg-[#68B7E3]"></span>
-                <div>
-                  <h4 class="text-lg font-bold text-[#173A63]">Des solutions sur mesure</h4>
-                  <p class="mt-1 text-[13px] leading-6 text-slate-600">Chaque mission est adaptée aux réalités, au secteur d'activité et aux objectifs spécifiques du client.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="overflow-hidden rounded-[14px] lg:order-2">
-            <img src="assets/images/valeur-ajoutee-conseil.webp" alt="La valeur ajoutée d'IFPE Conseil" class="protected-image h-[300px] w-full object-cover sm:h-[360px] lg:h-[400px]" draggable="false" width="1000" height="665" srcset="assets/images/valeur-ajoutee-conseil-480.webp 480w, assets/images/valeur-ajoutee-conseil-800.webp 800w, assets/images/valeur-ajoutee-conseil.webp 1000w" sizes="100vw" loading="lazy" decoding="async" />
-          </div>
-        </div>
-
-        <div class="hidden grid lg:grid-cols-3 gap-8" aria-hidden="true">
-          <!-- Pilier 1 -->
-          <div class="relative overflow-hidden rounded-3xl p-10 text-white" style="background: linear-gradient(135deg, var(--ifpe-dark-blue) 0%, var(--ifpe-medium-blue) 100%);">
-            <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/5 transform translate-x-8 -translate-y-8"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/5 transform -translate-x-6 translate-y-6"></div>
-            <div class="relative z-10">
-              <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-4">Une expertise éprouvée</h3>
-              <p class="text-sm leading-relaxed opacity-85">Plus de 30 ans d'expérience dans l'entreprise, l'industrie, les services, l'éducation et la formation professionnelle.</p>
-              <div class="mt-6 pt-6 border-t border-white/20">
-                <div class="text-4xl font-bold">30+</div>
-                <div class="text-xs opacity-70 mt-1">Années d'expérience</div>
-              </div>
-            </div>
-          </div>
-          <!-- Pilier 2 -->
-          <div class="relative overflow-hidden rounded-3xl p-10 text-white" style="background: linear-gradient(135deg, var(--ifpe-medium-blue) 0%, var(--ifpe-light-blue) 100%);">
-            <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/5 transform translate-x-8 -translate-y-8"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/5 transform -translate-x-6 translate-y-6"></div>
-            <div class="relative z-10">
-              <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-4">Une approche intégrée</h3>
-              <p class="text-sm leading-relaxed opacity-85">Intervention simultanée sur les dimensions humaine, technique, organisationnelle, stratégique et numérique.</p>
-              <div class="mt-6 pt-6 border-t border-white/20">
-                <div class="text-4xl font-bold">5</div>
-                <div class="text-xs opacity-70 mt-1">Dimensions couvertes</div>
-              </div>
-            </div>
-          </div>
-          <!-- Pilier 3 -->
-          <div class="relative overflow-hidden rounded-3xl p-10 text-white" style="background: linear-gradient(135deg, var(--ifpe-light-blue) 0%, var(--ifpe-dark-blue) 100%);">
-            <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/5 transform translate-x-8 -translate-y-8"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white/5 transform -translate-x-6 translate-y-6"></div>
-            <div class="relative z-10">
-              <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
-              </div>
-              <h3 class="text-xl font-bold mb-4">Des solutions sur mesure</h3>
-              <p class="text-sm leading-relaxed opacity-85">Chaque mission est adaptée aux réalités, au secteur d'activité et aux objectifs spécifiques du client.</p>
-              <div class="mt-6 pt-6 border-t border-white/20">
-                <div class="text-4xl font-bold">100%</div>
-                <div class="text-xs opacity-70 mt-1">Personnalisé</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CALL TO ACTION ===== -->
-    <section class="cta-performance-section px-4 py-8 sm:px-8">
-      <div class="mx-auto max-w-4xl px-2 text-center sm:px-8">
-        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
-          Ensemble, construisons votre<br class="hidden sm:block"/> performance de demain
-        </h2>
-        <p class="text-sm lg:text-base text-white/75 mb-5 max-w-2xl mx-auto leading-relaxed">
-          IFPE Conseil met l'expertise, l'innovation et les compétences au service de votre performance durable.
-        </p>
-        <div class="flex flex-wrap gap-4 justify-center">
-          <a href="contact.html" class="inline-flex items-center gap-2 px-7 py-3 bg-green text-white rounded-xl font-bold text-sm hover:bg-white hover:text-navy transition-all hover:shadow-xl hover:-translate-y-0.5">
-            Demander un accompagnement
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </a>
-          <a href="domaines.html" class="inline-flex items-center gap-2 px-7 py-3 bg-white/10 text-white rounded-xl font-semibold text-sm border border-white/30 hover:bg-white/20 transition-all">
-            Découvrir nos domaines
-          </a>
-        </div>
-        <!-- Decorative stats band -->
-        <div class="cta-performance-stats mx-auto mt-8 grid w-full max-w-5xl grid-cols-1 gap-4 border-t border-white/20 pt-7 md:grid-cols-2 lg:grid-cols-4">
-          <div class="cta-stat-card">
-            <div class="cta-stat-badge" aria-label="30+ ans d'expérience">
-              <div class="cta-stat-number">30+</div>
-            </div>
-            <div class="cta-stat-label">Ans d’expérience</div>
-          </div>
-          <div class="cta-stat-card">
-            <div class="cta-stat-badge">
-              <div class="cta-stat-number">7</div>
-            </div>
-            <div class="cta-stat-label">Domaines d’expertise</div>
-          </div>
-          <div class="cta-stat-card">
-            <div class="cta-stat-badge cta-stat-badge--satisfaction">
-              <div class="cta-stat-number">4,7/5</div>
-              <div class="cta-rating-stars" aria-label="Note de 4,7 sur 5">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span class="is-partial">★</span>
-              </div>
-            </div>
-            <div class="cta-stat-label">Satisfaction générale</div>
-          </div>
-          <div class="cta-stat-card">
-            <div class="cta-stat-badge">
-              <div class="cta-stat-number">6</div>
-            </div>
-            <div class="cta-stat-label">Services clés</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PRESENTATION VIDEO ===== -->
-    <section id="presentation" class="video-footer-bridge px-4 pb-20 pt-24 sm:px-8">
-      <div class="relative max-w-4xl mx-auto">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl lg:text-4xl font-bold text-navy mb-5">Présentation IFPE Conseil</h2>
-          <p class="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
-            Votre partenaire stratégique pour la performance durable.
-          </p>
-        </div>
-
-        <div class="presentation-video presentation-video-card overflow-hidden bg-navy">
-          <video id="presentation-video" controls preload="metadata" playsinline aria-label="Présentation IFPE Conseil" class="block h-full w-full object-contain">
-            <source src="presentation-ifpe-conseil-audio.mp4?v=20260710-audio" type="video/mp4" />
-            Votre navigateur ne prend pas en charge la lecture de cette vidéo.
-          </video>
-          <button id="presentation-play" class="presentation-play-button" type="button" aria-label="Lire la vidéo de présentation">
-            <svg aria-hidden="true" viewBox="0 0 64 64" fill="currentColor">
-              <path d="M23 16.5v31L47 32 23 16.5Z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </main>
 
   <!-- ===== FOOTER ===== -->

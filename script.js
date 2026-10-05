@@ -184,6 +184,171 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- Navigation de la fenêtre centrale de l'accueil ---------- */
+  const centralContent = document.getElementById('central-content');
+  const centralTitle = document.getElementById('home-title');
+  const centralDescription = document.getElementById('central-description');
+  const centralDetails = document.getElementById('central-details');
+
+  if (centralContent && centralTitle && centralDescription && centralDetails) {
+    const poleStructure = [
+      ['Contexte', 'Contenu à compléter'],
+      ['Objectif', 'Contenu à compléter'],
+      ['Méthodologie d’intervention', 'Contenu à compléter'],
+      ['Livrables', 'Contenu à compléter'],
+      ['Équipe d’experts', 'Contenu à compléter']
+    ];
+    const content = {
+      president: ['Mot du président', 'Le mot du président', 'IFPE Conseil accompagne les organisations avec une vision claire, pragmatique et orientée vers des résultats durables.', ['Une expertise au service de la transformation.', 'Un accompagnement adapté à chaque organisation.']],
+      prestations: ['Prestations', 'Nos prestations', 'Une offre intégrée de conseil, d’études, d’ingénierie de formation et de coaching.', ['Diagnostic organisationnel', 'Optimisation des processus', 'Ingénierie de la formation', 'Coaching des dirigeants et managers']],
+      modalites: ['Modalités d’intervention', 'Nos modalités d’intervention', 'Des interventions construites avec le client et adaptées au contexte de chaque mission.', ['Diagnostic et cadrage', 'Co-construction des solutions', 'Accompagnement et transfert de compétences', 'Évaluation des résultats']],
+      references: ['Références', 'Nos références', 'Les références et réalisations d’IFPE Conseil seront présentées ici.', ['Contenu à compléter']],
+      consulting: ['IFPE CONSULTING', 'IFPE Consulting', 'Un pôle dédié à la performance, à la transformation et au développement organisationnel.', poleStructure],
+      ingenierie: ['IFPE INGÉNIERIE DE LA FORMATION', 'IFPE Ingénierie de la formation', 'Un pôle dédié au développement des compétences et à la conception de dispositifs de formation.', poleStructure],
+      coaching: ['IFPE COACHING', 'IFPE Coaching', 'Un pôle dédié à l’accompagnement des dirigeants, managers et équipes.', poleStructure],
+      conseils: ['Conseils pratiques', 'Conseils pratiques', 'Des repères directement utiles pour progresser dans le pilotage et la transformation des organisations.', ['Contenu à compléter']],
+      news: ['News / Actualités', 'News / Actualités', 'Les actualités et publications d’IFPE Conseil seront regroupées ici.', ['Contenu à compléter']],
+      economique: ['Données économiques', 'Données économiques', 'Une sélection de données et d’analyses pour éclairer les décisions.', ['Contenu à compléter']],
+      thematiques: ['Informations thématiques', 'Informations thématiques', 'Des contenus dédiés au capital humain, au numérique, au leadership et au coaching.', ['Contenu à compléter']]
+    };
+
+    const renderCentralContent = (key, updateHash = true) => {
+      const item = content[key] || content.president;
+      centralTitle.innerHTML = `${item[1].split(' ')[0]}<br /><span>${item[1].split(' ').slice(1).join(' ')}</span>`;
+      centralDescription.textContent = item[2];
+      centralDetails.innerHTML = item[3].map(entry => {
+        const label = Array.isArray(entry) ? entry[0] : entry;
+        const value = Array.isArray(entry) ? entry[1] : 'Contenu à compléter';
+        return `<article class="central-detail"><strong>${label}</strong><span>${value}</span></article>`;
+      }).join('');
+      document.querySelectorAll('[data-content]').forEach(el => el.classList.toggle('is-active', el.dataset.content === key));
+      if (updateHash) history.replaceState(null, '', `#${key}`);
+    };
+
+    document.querySelectorAll('[data-content]').forEach(element => {
+      element.addEventListener('click', event => {
+        event.preventDefault();
+        renderCentralContent(element.dataset.content);
+        document.getElementById('presentation')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    renderCentralContent(location.hash.slice(1) || 'president', false);
+  }
+
+
+  /* ---------- Prestations : navigation interne sans rechargement ---------- */
+  const prestationsHost = document.getElementById('central-content');
+  if (prestationsHost) {
+    const expertiseData = {
+      organisationnelle: { number: '01', title: 'Expertise organisationnelle', image: 'Expertise organisationnelle.png', intro: 'Nous accompagnons les organisations dans l’amélioration de leur performance grâce à des diagnostics précis et des solutions adaptées.', services: ['Diagnostic organisationnel', 'Mise en œuvre de nouveaux processus', 'Conception et implantation', 'Accompagnement à l’implantation', 'Optimisation des organisations'] },
+      metiers: { number: '02', title: 'Expertise métiers', image: 'Expertise métiers.png', intro: 'Nous développons les capacités et les repères métiers nécessaires à la réussite des transformations.', services: ['Positionnement', 'Renforcement des capacités', 'Approche sectorielle'] },
+      strategique: { number: '03', title: 'Expertise stratégique', image: 'Expertise stratégique.png', intro: 'Nous éclairons les décisions et accompagnons la traduction de la vision en orientations concrètes.', services: ['Études sectorielles', 'Stratégie', 'Référentiels métiers', 'Référentiels de compétences', 'Méthodologie et accompagnement stratégique'] },
+      formation: { number: '04', title: 'Ingénierie de la formation', image: 'Ingénierie de la formation.png', intro: 'Nous concevons des dispositifs de formation cohérents, adaptés aux besoins et orientés vers le développement des compétences.', services: ['Méthodologie', 'Curriculum', 'Ingénierie de formation', 'Formation et développement des compétences (APC)'] }
+    };
+    const tabContent = {
+      'Contexte': ['Les organisations évoluent dans un environnement en constante mutation. Pour rester compétitives, elles doivent adapter leurs structures, leurs processus et leurs modes de fonctionnement.', ['Complexité croissante des organisations', 'Exigence accrue de performance et de qualité', 'Nécessité d’agilité et d’optimisation des ressources', 'Transformation digitale et évolution des métiers']],
+      'Objectif': ['Structurer une organisation plus lisible, plus agile et durablement orientée vers la performance.', ['Clarifier les rôles et responsabilités', 'Fluidifier les processus de travail', 'Renforcer la qualité du pilotage']],
+      'Méthodologie d’intervention': ['Notre intervention s’appuie sur une démarche progressive, participative et adaptée au contexte de chaque mission.', ['Cadrage et collecte des données', 'Diagnostic partagé', 'Conception des solutions', 'Accompagnement et transfert']],
+      'Livrables': ['Les livrables sont construits avec les équipes et directement opérationnels.', ['Rapport de diagnostic', 'Cartographies et processus cibles', 'Plan d’action et outils de pilotage']],
+      'Équipe d’experts': ['Une équipe pluridisciplinaire mobilisée selon les enjeux, le périmètre et le calendrier de la mission.', ['Consultants seniors', 'Experts métiers et organisation', 'Référents projet dédiés']]
+    };
+    const expertiseIcon = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9h16v11H4ZM8 9V6a4 4 0 0 1 8 0v3M8 13h8"/></svg>`;
+    const renderPrestations = () => {
+      prestationsHost.className = 'home-presentation-copy prestations-view';
+      prestationsHost.innerHTML = `<div class="prestations-heading"><span class="home-section-label">IFPE CONSEIL</span><h1>Nos <span>prestations</span></h1><p>Une offre intégrée de conseil, d’études, d’ingénierie de formation et d’accompagnement.</p></div><div class="prestations-grid">${Object.entries(expertiseData).map(([key, item]) => `<button type="button" class="prestation-card" data-expertise="${key}"><span class="prestation-number">${item.number}</span><span class="prestation-icon">${expertiseIcon}</span><span class="prestation-card-copy"><strong>${item.title}</strong><span>${item.services.slice(0, 3).join(' · ')}</span></span><span class="prestation-arrow">→</span></button>`).join('')}</div>`;
+    };
+    const renderDetail = (key, activeTab = 'Contexte') => {
+      const item = expertiseData[key] || expertiseData.organisationnelle;
+      const tabs = Object.keys(tabContent);
+      const selected = tabs.includes(activeTab) ? activeTab : 'Contexte';
+      const [text, points] = tabContent[selected];
+      prestationsHost.className = 'home-presentation-copy expertise-detail-view';
+      prestationsHost.innerHTML = `<button type="button" class="prestations-back" data-back-prestations>← <span>Retour aux prestations</span></button><div class="expertise-header"><span class="expertise-header-icon">${expertiseIcon}</span><div><span class="home-section-label">${item.number}. EXPERTISE</span><h1>${item.title}</h1><p>${item.intro}</p></div></div><div class="expertise-panel"><nav class="expertise-tabs" aria-label="Navigation de l’expertise">${tabs.map(tab => `<button type="button" class="expertise-tab${tab === selected ? ' is-active' : ''}" data-expertise-tab="${tab}">${tab}</button>`).join('')}</nav><article class="expertise-panel-content"><div class="expertise-copy"><h2>${selected}</h2><p>${text}</p><ul>${points.map(point => `<li>${point}</li>`).join('')}</ul></div><img class="expertise-image protected-image" src="${item.image}" alt="Illustration de ${item.title}" draggable="false" /></article></div>`;
+    };
+    const renderGeneric = (key) => {
+      const labels = { president: ['Mot du président', 'IFPE Conseil accompagne les organisations avec une vision claire, pragmatique et orientée vers des résultats durables.'], modalites: ['Modalités d’intervention', 'Des interventions construites avec le client et adaptées au contexte de chaque mission.'], references: ['Références', 'Les références et réalisations d’IFPE Conseil seront présentées ici.'], consulting: ['IFPE Consulting', 'Un pôle dédié à la performance, à la transformation et au développement organisationnel.'], ingenierie: ['IFPE Ingénierie de la formation', 'Un pôle dédié au développement des compétences et à la conception de dispositifs de formation.'], coaching: ['IFPE Coaching', 'Un pôle dédié à l’accompagnement des dirigeants, managers et équipes.'] };
+      const item = labels[key] || labels.president;
+      prestationsHost.className = 'home-presentation-copy';
+      prestationsHost.innerHTML = `<div class="home-section-label">IFPE CONSEIL</div><h1>${item[0].split(' ')[0]}<br /><span>${item[0].split(' ').slice(1).join(' ')}</span></h1><h2>${item[0]}</h2><div class="home-presentation-rule" aria-hidden="true"></div><p>${item[1]}</p>`;
+    };
+    document.addEventListener('click', event => {
+      const card = event.target.closest('[data-expertise]');
+      const back = event.target.closest('[data-back-prestations]');
+      const tab = event.target.closest('[data-expertise-tab]');
+      const contentLink = event.target.closest('[data-content]');
+      if (card && prestationsHost.contains(card)) { renderDetail(card.dataset.expertise); history.replaceState(null, '', `#prestations-${card.dataset.expertise}`); prestationsHost.focus(); }
+      else if (back && prestationsHost.contains(back)) { renderPrestations(); history.replaceState(null, '', '#prestations'); }
+      else if (tab && prestationsHost.contains(tab)) { const key = location.hash.replace('#prestations-', '') || 'organisationnelle'; renderDetail(key, tab.dataset.expertiseTab); history.replaceState(null, '', `#prestations-${key}`); }
+      else if (contentLink && contentLink.dataset.content !== 'prestations') { setTimeout(() => renderGeneric(contentLink.dataset.content), 0); }
+    });
+    document.querySelectorAll('[data-content="prestations"]').forEach(link => link.addEventListener('click', () => setTimeout(renderPrestations, 0)));
+    if (location.hash === '#prestations') renderPrestations();
+    if (location.hash.startsWith('#prestations-')) renderDetail(location.hash.replace('#prestations-', ''));
+  }
+
+  /* ---------- Correction de séparation Prestations / pôles ---------- */
+  const separatedHost = document.getElementById('central-content');
+  if (separatedHost) {
+    const presentationSection = document.getElementById('presentation');
+    const presentationStats = document.querySelector('.home-stats');
+    const presentationInfo = document.querySelector('.home-info-grid');
+    const setDedicatedMode = (isDedicated) => {
+      presentationSection?.classList.toggle('is-dedicated', isDedicated);
+      presentationStats?.classList.toggle('is-hidden', isDedicated);
+      presentationInfo?.classList.toggle('is-hidden', isDedicated);
+    };
+    const simpleExpertises = [
+      ['01', 'Expertise organisationnelle', ['Diagnostic organisationnel', 'Mise en œuvre de nouveaux processus', 'Conception et implantation', 'Accompagnement à l’implantation', 'Optimisation des organisations']],
+      ['02', 'Expertise métiers', ['Positionnement', 'Renforcement des capacités', 'Approche sectorielle']],
+      ['03', 'Expertise stratégique', ['Études sectorielles', 'Stratégie', 'Référentiels métiers', 'Référentiels de compétences', 'Méthodologie et accompagnement stratégique']],
+      ['04', 'Ingénierie de la formation', ['Méthodologie', 'Curriculum', 'Ingénierie de formation', 'Formation et développement des compétences (APC)']]
+    ];
+    const poleViews = {
+      consulting: ['IFPE Consulting', 'Un pôle dédié à la performance, à la transformation et au développement organisationnel.', 'Expertise organisationnelle.png'],
+      ingenierie: ['IFPE Ingénierie de la Formation', 'Un pôle dédié au développement des compétences et à la conception de dispositifs de formation.', 'Ingénierie de la formation.png'],
+      coaching: ['IFPE Coaching', 'Un pôle dédié à l’accompagnement des dirigeants, managers et équipes.', 'Expertise métiers.png']
+    };
+    const poleTabs = ['Contexte', 'Objectif', 'Méthodologie d’intervention', 'Livrables', 'Équipe d’experts'];
+    const poleContent = {
+      'Contexte': ['Les organisations évoluent dans un environnement en constante mutation. Pour rester compétitives, elles doivent adapter leurs structures, leurs processus et leurs modes de fonctionnement.', ['Complexité croissante des organisations', 'Exigence accrue de performance et de qualité', 'Nécessité d’agilité et d’optimisation des ressources', 'Transformation digitale et évolution des métiers']],
+      'Objectif': ['Structurer une organisation plus lisible, plus agile et durablement orientée vers la performance.', ['Clarifier les rôles et responsabilités', 'Fluidifier les processus de travail', 'Renforcer la qualité du pilotage']],
+      'Méthodologie d’intervention': ['Notre intervention s’appuie sur une démarche progressive, participative et adaptée au contexte de chaque mission.', ['Cadrage et collecte des données', 'Diagnostic partagé', 'Conception des solutions', 'Accompagnement et transfert']],
+      'Livrables': ['Les livrables sont construits avec les équipes et directement opérationnels.', ['Rapport de diagnostic', 'Cartographies et processus cibles', 'Plan d’action et outils de pilotage']],
+      'Équipe d’experts': ['Une équipe pluridisciplinaire mobilisée selon les enjeux, le périmètre et le calendrier de la mission.', ['Consultants seniors', 'Experts métiers et organisation', 'Référents projet dédiés']]
+    };
+    const separatedIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9h16v11H4ZM8 9V6a4 4 0 0 1 8 0v3M8 13h8"/></svg>';
+    const showSimplePrestations = () => {
+      setDedicatedMode(true);
+      separatedHost.className = 'home-presentation-copy prestations-view';
+      separatedHost.innerHTML = `<div class="prestations-heading"><span class="home-section-label">IFPE CONSEIL</span><h1>Nos <span>prestations</span></h1><p>Une offre intégrée de conseil, d’études, d’ingénierie de formation et d’accompagnement.</p></div><div class="prestations-grid">${simpleExpertises.map(item => `<article class="prestation-card"><span class="prestation-number">${item[0]}</span><span class="prestation-icon">${separatedIcon}</span><span class="prestation-card-copy"><strong>${item[1]}</strong><ul>${item[2].map(service => `<li>${service}</li>`).join('')}</ul></span></article>`).join('')}</div>`;
+    };
+    const showPole = (key, selected = 'Contexte') => {
+      setDedicatedMode(true);
+      const item = poleViews[key] || poleViews.consulting;
+      const active = poleTabs.includes(selected) ? selected : 'Contexte';
+      const content = poleContent[active];
+      separatedHost.className = 'home-presentation-copy expertise-detail-view';
+      separatedHost.innerHTML = `<button type="button" class="prestations-back" data-separated-back>← <span>Retour aux pôles IFPE</span></button><div class="expertise-header"><span class="expertise-header-icon">${separatedIcon}</span><div><span class="home-section-label">IFPE</span><h1>${item[0]}</h1><p>${item[1]}</p></div></div><div class="expertise-panel"><nav class="expertise-tabs" aria-label="Navigation du pôle">${poleTabs.map(tab => `<button type="button" class="expertise-tab${tab === active ? ' is-active' : ''}" data-separated-tab="${tab}">${tab}</button>`).join('')}</nav><article class="expertise-panel-content"><div class="expertise-copy"><h2>${active}</h2><p>${content[0]}</p><ul>${content[1].map(point => `<li>${point}</li>`).join('')}</ul></div><img class="expertise-image protected-image" src="${item[2]}" alt="Illustration de ${item[0]}" draggable="false" /></article></div>`;
+    };
+    document.addEventListener('click', event => {
+      const link = event.target.closest('[data-content]');
+      const oldCard = event.target.closest('[data-expertise]');
+      const oldTab = event.target.closest('[data-expertise-tab]');
+      const back = event.target.closest('[data-back-prestations]');
+      const separatedBack = event.target.closest('[data-separated-back]');
+      const separatedTab = event.target.closest('[data-separated-tab]');
+      if (oldCard && separatedHost.contains(oldCard)) setTimeout(showSimplePrestations, 0);
+      else if (oldTab && separatedHost.contains(oldTab)) { const key = location.hash.replace('#prestations-', '') || 'organisationnelle'; setTimeout(showSimplePrestations, 0); history.replaceState(null, '', '#prestations'); }
+      else if (back && separatedHost.contains(back)) setTimeout(showSimplePrestations, 0);
+      else if (separatedBack && separatedHost.contains(separatedBack)) document.querySelector('[data-content="president"]')?.click();
+      else if (separatedTab && separatedHost.contains(separatedTab)) { const key = location.hash.replace('#pole-', '') || 'consulting'; showPole(key, separatedTab.dataset.separatedTab); history.replaceState(null, '', `#pole-${key}`); }
+      else if (link) { const key = link.dataset.content; setTimeout(() => key === 'prestations' ? showSimplePrestations() : poleViews[key] ? showPole(key) : setDedicatedMode(false), 0); if (poleViews[key]) history.replaceState(null, '', `#pole-${key}`); }
+    });
+    if (location.hash === '#prestations' || location.hash.startsWith('#prestations-')) showSimplePrestations();
+    if (location.hash.startsWith('#pole-')) showPole(location.hash.replace('#pole-', ''));
+    if (!location.hash.startsWith('#prestations') && !location.hash.startsWith('#pole-')) setDedicatedMode(false);
+  }
 
   /* ---------- Mega menus ---------- */
   const navItems  = document.querySelectorAll('.nav-item');
